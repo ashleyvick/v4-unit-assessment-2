@@ -1,4 +1,4 @@
-////////////////////PROBLEM 1////////////////////
+////////////////////PROBLEM 1 - COMPLETED! ////////////////////
 /*
     Create an array that contains the following values: 
     the number 4, 
@@ -10,8 +10,9 @@
 
 //CODE HERE
 
+let myArr = [4, 'abc', ['cat', 'dog', 'bird'], 77]
 
-////////////////////PROBLEM 2////////////////////
+////////////////////PROBLEM 2 - COMPLETED! ////////////////////
 /*
     The following array, nestedLetters, contains many levels of nested arrays.
     Using bracket notation, access the letter 'z' and save it to a variable
@@ -22,8 +23,9 @@ const nestedLetters = ['m', 'g', 'e', 'q', 'h', ['n', 'b', ['v', 'z', 'y', 'r']]
 
 //CODE HERE
 
+const foundZ = nestedLetters[5][2][1];
 
-////////////////////PROBLEM 3////////////////////
+////////////////////PROBLEM 3 - COMPLETED!!! ////////////////////
 /*
     Use the spread operator to combine the following arrays into one array.
     Name the new array 'animals'.
@@ -38,6 +40,7 @@ const desert = ['rattlesnake', 'coyote']
 
 //CODE HERE
 
+const animals = [...forest, ...ocean, ...savannah, ...desert]; 
 
 /*
     Now use the spread operator to make a copy of your animals array.
@@ -46,8 +49,10 @@ const desert = ['rattlesnake', 'coyote']
 
 //CODE HERE
 
+const animalsCopy = [...animals, 'elephant'];
 
-////////////////////PROBLEM 4////////////////////
+
+////////////////////PROBLEM 4 - COMPLETED!! ////////////////////
 /*
     Write an arrow function called 'compareNums' that takes in 2 parameters, 
     which will be numbers. 
@@ -57,8 +62,16 @@ const desert = ['rattlesnake', 'coyote']
 
 //CODE HERE
 
-  
-////////////////////PROBLEM 5////////////////////
+let compareNums = (num1, num2) => {
+    if (num1 > num2){
+        return num1 
+    } else if (num2 > num1) 
+    { return num2 
+        } else{
+            return num1 && num2}
+}
+        
+////////////////////PROBLEM 5 - COMPLETED!! ////////////////////
 /*
     Write a one line arrow function called 'bestMovie' that takes in one parameter,
     which will be a string of a movie title. 
@@ -68,17 +81,22 @@ const desert = ['rattlesnake', 'coyote']
 */
 
 //CODE HERE
-  
-  
-////////////////////PROBLEM 6////////////////////
+
+let bestMovie = (movie) => movie + " is the best movie ever!"
+
+
+////////////////////PROBLEM 6 - COMPLETED!! ////////////////////
 /*
     Write an arrow function called 'jsNinja' that returns the string: 'I am a JavaScript ninja!'
 */
 
 //CODE HERE
-  
 
-////////////////////PROBLEM 7////////////////////
+let jsNinja = () => {
+    return "I am a JavaScript ninja!"
+}
+
+////////////////////PROBLEM 7 - Completed!! ////////////////////
 
 //DO NOT EDIT CODE BELOW
   const gameInfo = {
@@ -97,9 +115,10 @@ const desert = ['rattlesnake', 'coyote']
 */
 
 //CODE HERE
-  
 
-////////////////////PROBLEM 8////////////////////
+delete gameInfo.rating
+
+////////////////////PROBLEM 8 - COMPLETED! ////////////////////
 
 //DO NOT EDIT CODE BELOW
   const shapes = {
@@ -119,8 +138,12 @@ const desert = ['rattlesnake', 'coyote']
 */
 
 //CODE HERE
-  
-  
+
+for (let key in shapes){
+    if (shapes[key] % 2 !== 0) {
+        delete shapes[key]
+    }
+}
 ////////////////////PROBLEM 9////////////////////
 
 //DO NOT EDIT CODE BELOW
@@ -162,7 +185,14 @@ const classes = [
 
 //CODE HERE
 
-  
+for (let i = 0; i < classes.length; i++){
+    for (let key in classes[i]) {
+        if (classes[i][key] === true) {
+         classes[i][key] = false 
+        }
+    }
+}
+
 ////////////////////PROBLEM 10////////////////////
 /*
     Use nested for loops to compare the letters in the lettersToPair array below.
@@ -178,7 +208,14 @@ let pairsArray = []
 
 //CODE HERE
 
-    
+for (let i = 0; i < lettersToPair.length; i++){
+    for (let j = i+1; j < lettersToPair.length; j++) {
+        if (lettersToPair[i] === lettersToPair[j]) {
+          pairsArray.push([i,j])
+        }
+    }
+}
+console.log(pairsArray)
 
 //////////////////////////////////PROBLEMS 11-14//////////////////////////////////
 /*
@@ -195,6 +232,12 @@ let pairsArray = []
 
 //CODE HERE
 
+function Dog (name, age, breed, tricks){
+    this.name = name;
+    this.age = age;
+    this.breed = breed;
+    this.tricks = tricks;
+}
 
 /*
     Invoke your dog constructor passing in 'Fido' for the name, 3 for the age, 
@@ -203,7 +246,8 @@ let pairsArray = []
 */
 
 //CODE HERE
-  
+
+const fido = new Dog ('Fido', 3, 'Jack Russell', ['sit', 'shake'])
 
 ////////////////////PROBLEM 12////////////////////
 /*
@@ -214,6 +258,9 @@ let pairsArray = []
 
 //CODE HERE
 
+function bark(){
+    return `${this.name} says bark!`
+}
 
 /*
     Invoke the call method on bark, passing in fido as the context
@@ -221,8 +268,9 @@ let pairsArray = []
 */
 
 //CODE HERE
-  
-  
+
+let fidoSpeak = fido.bark.call()
+
 ////////////////////PROBLEM 13////////////////////
 /*
     Write a function called 'teachTrick' that will take in one parameter, trick, 

@@ -45,9 +45,8 @@ body{
 
 .main-body{
     box-sizing: border-box;
-    width: 50vw;
-    height: 100vh;
     font-family: Nunita;
+    width: 70%;
     font-size: 15px;
     margin-left: 5%;
 	display: flex;
@@ -56,10 +55,15 @@ body{
 	flex-direction: column;
 }
 
+.main-body p{
+    width: 50vw;
+}
+
 .imagegallery{
     width: 100vw;
     height: 100px;
-    padding: 5%;
+    padding-top: 5%;
+    padding-bottom: 1%;
     display: flex;
     position: relative;
 	flex-direction: row;
@@ -68,17 +72,24 @@ body{
 	align-content: space-around;
 }
 .imagegallery h1{
+    width: 40vw;
+    height: 100px;
     font-size: 25px;
 }
+.imagegallery h2{
+    font-size: 15px;
+    color: cornflowerblue;
+    text-align: right;
+}
 
-.photos{
+.photos-container{
     height: 100vh;
-    width: 100 vw;
+    width: 70vw;
     display: flex;
     position: relative;
 	flex-direction: row ;
     flex-wrap: wrap;
-	justify-content: space-evenly;
+	justify-content: space-around;
 	align-items: center;
 	align-content: center;
 }
@@ -95,7 +106,6 @@ body{
     width: 190px ;
     height: 200px;
     font-family: Nunita;
-    font-size: 15px;
 	display: flex;
     position: absolute;
     top: 20%;
@@ -105,12 +115,16 @@ body{
 	justify-content: flex-start;
 	align-items: flex-end;
 	align-content: space-around;
-    
-
-}
+    }
 .profilepic{
     height: 200px;
     width: 200px;
+}
+.profile h1{
+    height: 200px;
+    width: 200px;
+    font-size: 20px;
+    text-align: center;
 }
 
 .Popular-Articles{
@@ -132,6 +146,12 @@ body{
 	align-items: flex-end;
 	align-content: space-around;
 }
+.Popular-Articles h1{
+    height: 200px;
+    width: 200px;
+    font-size: 20px;
+    text-align: center;
+}
 
 
 /* 
@@ -150,7 +170,6 @@ the font is called 'nunito' and can be found on google fonts
 */
 
 .footer{
-    box-sizing: border-box;
     width: 100vw;
     height: 50px;
     background-color: rgb(42, 171, 226);
@@ -159,7 +178,7 @@ the font is called 'nunito' and can be found on google fonts
     font-size: 7px;
 }
 .footer h1{
-    position: relative;
+    position: absolute;
     left: 30px;
     top: 20%;
 }
