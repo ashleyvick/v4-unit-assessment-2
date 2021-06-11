@@ -144,7 +144,7 @@ for (let key in shapes){
         delete shapes[key]
     }
 }
-////////////////////PROBLEM 9////////////////////
+////////////////////PROBLEM 9 COMPLETED! ////////////////////
 
 //DO NOT EDIT CODE BELOW
 const classes = [
@@ -193,7 +193,7 @@ for (let i = 0; i < classes.length; i++){
     }
 }
 
-////////////////////PROBLEM 10////////////////////
+////////////////////PROBLEM 10 COMPLETED! ////////////////////
 /*
     Use nested for loops to compare the letters in the lettersToPair array below.
     When you find a pair, push the indexes of the letters into the pairsArray as an array.
@@ -217,7 +217,7 @@ for (let i = 0; i < lettersToPair.length; i++){
 }
 console.log(pairsArray)
 
-//////////////////////////////////PROBLEMS 11-14//////////////////////////////////
+//////////////////////////////////PROBLEMS 11-14 ///////////////
 /*
     Problems 12-14 are all going to build off of problem 11. 
 */
@@ -269,7 +269,7 @@ function bark(){
 
 //CODE HERE
 
-let fidoSpeak = fido.bark.call()
+let fidoSpeak = bark.call(fido)
 
 ////////////////////PROBLEM 13////////////////////
 /*
@@ -281,6 +281,11 @@ let fidoSpeak = fido.bark.call()
 
 //CODE HERE
 
+function teachTrick(trick){
+    this.tricks.push(trick)
+    return this.tricks
+}
+
 
 /*
     Invoke the bind method on teachTrick, passing in fido as the context and the string 'stay' as a trick.
@@ -288,8 +293,9 @@ let fidoSpeak = fido.bark.call()
 */
 
 //CODE HERE
-  
-  
+
+let teachStay = teachTrick.bind(fido, 'stay')
+
 ////////////////////PROBLEM 14////////////////////
 /*
     Write a function called 'dogIntro' that will take in two parameters, treat and toy,
@@ -300,6 +306,11 @@ let fidoSpeak = fido.bark.call()
 
 //CODE HERE
 
+function dogIntro(treat, toy){
+    this.treat = treat;
+    this.toy = toy;
+    return `${this.name} is a ${this.breed} that love ${treat} and their ${toy}!`
+}
 
 /*
     Invoke the apply method on dogIntro, passing in fido as the context 
@@ -308,7 +319,8 @@ let fidoSpeak = fido.bark.call()
 */
 
 //CODE HERE
-  
+
+let fidoIntro = dogIntro.apply(fido, ['chicken', 'tennis ball'])
 
 ////////////////////PROBLEM 15////////////////////
 /*
@@ -319,7 +331,14 @@ let fidoSpeak = fido.bark.call()
 
 //CODE HERE
 
-  
+function Phone(brand, model, storage, color, sold){
+    this.brand = brand;
+    this.model = model;
+    this.storage = storage;
+    this.color = color;
+    this.sold = sold;
+}
+
 /*
     Next make three new phones using your constructor function.
     Save them to the variables below (make sure you uncomment them).
@@ -332,11 +351,11 @@ let fidoSpeak = fido.bark.call()
 */
 
 //CODE HERE
-  // let phone1 = 
+  let phone1 = new Phone('Samsung', 'Note8', 32, 'Black', false);
   
-  // let phone2 = 
+  let phone2 = new Phone('IPHONE', 'cool', 64, 'white', false)
   
-  // let phone3 = 
+  let phone3 = new Phone('OnePlus', 'sweet', 16, 'silver', false)
   
 /*
     Last, add a prototype method to Phone.
@@ -347,5 +366,10 @@ let fidoSpeak = fido.bark.call()
 */
 
 //CODE HERE
+
+Phone.prototype.sell = function(){
+    this.sold = true
+    return `${this.brand} ${this.model} has been sold.`
+}
 
   

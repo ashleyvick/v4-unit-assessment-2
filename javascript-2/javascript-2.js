@@ -1,32 +1,32 @@
-////////////////////PROBLEM 1////////////////////
+////////////////////PROBLEM 1 COMPLETED! ////////////////////
 
 //DO NOT EDIT CODE BELOW
 let foods = [
   {
-    name: 'bread',
+    name: "bread",
     carbs: 36,
     protein: 8,
     fat: 2,
   },
   {
-    name: 'mayo mustard mix',
+    name: "mayo mustard mix",
     carbs: 0,
     protein: 0,
     fat: 10,
   },
   {
-    name: 'turkey',
+    name: "turkey",
     carbs: 0,
     protein: 25,
     fat: 1,
   },
   {
-    name: 'cheese',
+    name: "cheese",
     carbs: 0,
     protein: 5,
     fat: 7,
   },
-]
+];
 //DO NOT EDIT THE CODE ABOVE
 
 /*
@@ -36,6 +36,9 @@ let foods = [
 */
 
 //CODE HERE
+foods.forEach((element, index, array) => {
+  element.calories = element.carbs * 4 + element.protein * 4 + element.fat * 4;
+});
 
 //////////////////////////////////PROBLEMS 2-4//////////////////////////////////
 /*
@@ -46,34 +49,34 @@ let foods = [
 //DO NOT EDIT CODE BELOW
 const products = [
   {
-    name: 'backpack',
-    color: ['red', 'yellow'],
+    name: "backpack",
+    color: ["red", "yellow"],
     price: 500,
   },
   {
-    name: 'shirt',
-    color: ['blue'],
+    name: "shirt",
+    color: ["blue"],
     price: 400,
   },
   {
-    name: 'shoes',
-    color: ['red'],
+    name: "shoes",
+    color: ["red"],
     price: 1200,
   },
   {
-    name: 'socks',
-    color: ['yellow', 'blue'],
+    name: "socks",
+    color: ["yellow", "blue"],
     price: 200,
   },
   {
-    name: 'pants',
-    color: ['blue', 'red'],
+    name: "pants",
+    color: ["blue", "red"],
     price: 1000,
   },
-]
+];
 //DO NOT EDIT CODE ABOVE
 
-////////////////////PROBLEM 2////////////////////
+////////////////////PROBLEM 2 - COMPLETED! ////////////////////
 /*
   You've decided to have a sale on everything you have in stock. It's all going to be 25% off. 
   Using the map method, make a copy of your products array with the prices reduced by 25%. 
@@ -81,6 +84,14 @@ const products = [
 */
 
 //CODE HERE
+
+const saleProducts = products.map((products) => {
+  let discount = products.price * 0.25;
+  products.price -= discount;
+
+  products.price * 0.75;
+  return products;
+});
 
 ////////////////////PROBLEM 3////////////////////
 /*
@@ -92,6 +103,10 @@ const products = [
 
 //CODE HERE
 
+const blueProducts = saleProducts.filter((product) =>
+  product["color"].includes("blue")
+);
+
 ////////////////////PROBLEM 4////////////////////
 /*
   Now you'd like to get them their order total. 
@@ -101,6 +116,11 @@ const products = [
 
 //CODE HERE
 
+const orderTotal = blueProducts.reduce(
+  (total, price) => total + price.price,
+  0
+);
+
 //////////////////////////////////PROBLEMS 5-8//////////////////////////////////
 /*
   For these problems we will be using the objects below, contactInfo and shippingInfo,
@@ -109,18 +129,18 @@ const products = [
 
 //DO NOT EDIT CODE BELOW
 const contactInfo = {
-  name: 'Helen',
+  name: "Helen",
   phoneNumber: 1234445555,
-  email: 'helen@mymail.com',
-}
+  email: "helen@mymail.com",
+};
 
 const shippingInfo = {
-  name: 'Helen',
-  street: '100 E. Main Street',
-  city: 'Anytown',
-  state: 'AZ',
+  name: "Helen",
+  street: "100 E. Main Street",
+  city: "Anytown",
+  state: "AZ",
   zipCode: 85004,
-}
+};
 //DO NOT EDIT CODE ABOVE
 
 ////////////////////PROBLEM 5////////////////////
@@ -131,6 +151,8 @@ const shippingInfo = {
 
 //CODE HERE
 
+let helensInfo = Object.assign(contactInfo, shippingInfo);
+
 ////////////////////PROBLEM 6////////////////////
 /*
   Helen has a daughter named Ellen that lives at the same address.
@@ -139,12 +161,15 @@ const shippingInfo = {
 */
 
 //CODE HERE
+let ellensInfo = { ...helensInfo };
+ellensInfo.name = "Ellen";
+ellensInfo.email = "ellen@email.com";
 
 ////////////////////PROBLEM 7////////////////////
 /* 
   Save Ellen's email to a new variable using destructuring.
 */
-
+const { email } = ellensInfo;
 //CODE HERE
 
 ////////////////////PROBLEM 8////////////////////
@@ -154,6 +179,7 @@ const shippingInfo = {
 */
 
 //CODE HERE
+let { zipCode, state } = shippingInfo;
 
 //////////////////////////////////PROBLEMS 9-11//////////////////////////////////
 /*
@@ -162,51 +188,51 @@ const shippingInfo = {
 
 //DO NOT EDIT CODE BELOW
 const userInfo = {
-  name: 'gn@rly_c0der_007',
-  password: 'reallySuperSecret1',
+  name: "gn@rly_c0der_007",
+  password: "reallySuperSecret1",
   settings: {
-    theme: 'dark',
+    theme: "dark",
     fontSize: 14,
     alerts: false,
   },
-  topics: ['food', 'hiking', 'gaming', 'tech'],
+  topics: ["food", "hiking", "gaming", "tech"],
   comments: [
     {
-      post: 'New Phones Coming in September',
-      comment: 'Excited to get one of these!',
+      post: "New Phones Coming in September",
+      comment: "Excited to get one of these!",
       upvotes: 5,
       responses: [
         {
           userId: 3827,
-          response: 'Me too!',
+          response: "Me too!",
         },
         {
           userId: 1040,
-          response: 'Want to learn about the pyramid scheme I bought into?',
+          response: "Want to learn about the pyramid scheme I bought into?",
         },
       ],
     },
     {
-      post: 'Best Hiking in Your Town',
-      comment: 'Trail #402 is closed in the winter',
+      post: "Best Hiking in Your Town",
+      comment: "Trail #402 is closed in the winter",
       upvotes: 100,
       responses: [
         {
           userId: 1084,
-          response: 'Thanks for the info',
+          response: "Thanks for the info",
         },
         {
           userId: 5498,
-          response: 'You saved me a trip out there, thank you!',
+          response: "You saved me a trip out there, thank you!",
         },
         {
           userId: 3597,
-          response: 'Good to know',
+          response: "Good to know",
         },
       ],
     },
   ],
-}
+};
 //DO EDIT CODE ABOVE
 
 ////////////////////PROBLEM 9////////////////////
@@ -216,6 +242,7 @@ const userInfo = {
 */
 
 //CODE HERE
+let shouldAlert = userInfo.settings.alerts;
 
 ////////////////////PROBLEM 10////////////////////
 /*
@@ -224,6 +251,7 @@ const userInfo = {
 */
 
 //CODE HERE
+let topic = userInfo.topic[3];
 
 ////////////////////PROBLEM 11////////////////////
 /*
@@ -232,6 +260,7 @@ const userInfo = {
 */
 
 //CODE HERE
+let commenterId = userInfo.comments[1].responses[0].userId;
 
 ////////////////////PROBLEM 12////////////////////
 /*
@@ -251,6 +280,24 @@ const userInfo = {
 */
 
 //CODE HERE
+let person = {
+  name: "Benjamin",
+  age: 1,
+  jobs: ["eating", "sleeping", "being cute"],
+  birthday: function () {
+    this.age += 1;
+  },
+  favorites: {
+    color: "red",
+    number: 1,
+    book: "My first alphabet",
+    kids: [
+      { name: "Ashley", age: 33 },
+      { name: "Jefferson", age: 28 },
+      { name: "Theodore", age: 3 },
+    ],
+  },
+};
 
 //////////////////////////////////PROBLEMS 13-14//////////////////////////////////
 /*
@@ -265,18 +312,18 @@ const userInfo = {
 */
 
 const workout = {
-  type: 'strength training',
+  type: "strength training",
   duration: 45,
   complete: false,
   doWorkout: function () {
-    return (this.complete = true)
+    return (this.complete = true);
   },
-}
+};
 
 //let context1 = myFunc
 //let context1 = window
 //let context1 = global
-// let context1 = workout
+let context1 = workout;
 
 ////////////////////PROBLEM 14////////////////////
 /*
@@ -285,10 +332,10 @@ const workout = {
 */
 
 function myFunc() {
-  return this
+  return this;
 }
 
 //let context2 = myFunc
-// let context2 = window
+let context2 = window;
 //let context2 = global
 //let context2 = workout
